@@ -211,11 +211,11 @@ const phonesDetails = [{
   },
   id: 'dell-streak-7',
   images: [
-    '../../images/phones/dell-streak-7.0.jpg',
-    '../../images/phones/dell-streak-7.1.jpg',
-    '../../images/phones/dell-streak-7.2.jpg',
-    '../../images/phones/dell-streak-7.3.jpg',
-    '../../images/phones/dell-streak-7.4.jpg',
+    '../images/phones/dell-streak-7.0.jpg',
+    '../images/phones/dell-streak-7.1.jpg',
+    '../images/phones/dell-streak-7.2.jpg',
+    '../images/phones/dell-streak-7.3.jpg',
+    '../images/phones/dell-streak-7.4.jpg', 
   ],
   name: 'Dell Streak 7',
   sizeAndWeight: {
@@ -277,12 +277,12 @@ const phonesDetails = [{
   },
   id: 'dell-venue',
   images: [
-    '../../images/phones/dell-venue.0.jpg',
-    '../../images/phones/dell-venue.1.jpg',
-    '../../images/phones/dell-venue.2.jpg',
-    '../../images/phones/dell-venue.3.jpg',
-    '../../images/phones/dell-venue.4.jpg',
-    '../../images/phones/dell-venue.5.jpg',
+    'images/phones/dell-venue.0.jpg',
+    'images/phones/dell-venue.1.jpg',
+    'images/phones/dell-venue.2.jpg',
+    'images/phones/dell-venue.3.jpg',
+    'images/phones/dell-venue.4.jpg',
+    'images/phones/dell-venue.5.jpg',
   ],
   name: 'Dell Venue',
   sizeAndWeight: {
@@ -342,9 +342,9 @@ const phonesDetails = [{
   },
   id: 'droid-2-global-by-motorola',
   images: [
-    '../../images/phones/droid-2-global-by-motorola.0.jpg',
-    '../../images/phones/droid-2-global-by-motorola.1.jpg',
-    '../../images/phones/droid-2-global-by-motorola.2.jpg',
+    '../../../images/phones/droid-2-global-by-motorola.0.jpg',
+    '../../../images/phones/droid-2-global-by-motorola.1.jpg',
+    '../../../images/phones/droid-2-global-by-motorola.2.jpg',
   ],
   name: 'DROID\u2122 2 Global by Motorola',
   sizeAndWeight: {
@@ -404,8 +404,8 @@ const phonesDetails = [{
   },
   id: 'droid-pro-by-motorola',
   images: [
-    '../../images/phones/droid-pro-by-motorola.0.jpg',
-    '../../images/phones/droid-pro-by-motorola.1.jpg',
+    '../../../images/phones/droid-pro-by-motorola.0.jpg',
+    '../../../images/phones/droid-pro-by-motorola.1.jpg',
   ],
   name: 'DROID\u2122 Pro by Motorola',
   sizeAndWeight: {
@@ -465,9 +465,9 @@ const phonesDetails = [{
   },
   id: 'lg-axis',
   images: [
-    '../../images/phones/lg-axis.0.jpg',
-    '../../images/phones/lg-axis.1.jpg',
-    '../../images/phones/lg-axis.2.jpg',
+    '../../../images/phones/lg-axis.0.jpg',
+    '../../../images/phones/lg-axis.1.jpg',
+    '../../../images/phones/lg-axis.2.jpg',
   ],
   name: 'LG Axis',
   sizeAndWeight: {
@@ -526,10 +526,10 @@ const phonesDetails = [{
   },
   id: 'motorola-atrix-4g',
   images: [
-    '../../images/phones/motorola-atrix-4g.0.jpg',
-    '../../images/phones/motorola-atrix-4g.1.jpg',
-    '../../images/phones/motorola-atrix-4g.2.jpg',
-    '../../images/phones/motorola-atrix-4g.3.jpg',
+    '../../../images/phones/motorola-atrix-4g.0.jpg',
+    '../../../images/phones/motorola-atrix-4g.1.jpg',
+    '../../../images/phones/motorola-atrix-4g.2.jpg',
+    '../../../images/phones/motorola-atrix-4g.3.jpg',
   ],
   name: 'MOTOROLA ATRIX\u2122 4G',
   sizeAndWeight: {
@@ -588,9 +588,9 @@ const phonesDetails = [{
   },
   id: 'motorola-bravo-with-motoblur',
   images: [
-    '../../images/phones/motorola-bravo-with-motoblur.0.jpg',
-    '../../images/phones/motorola-bravo-with-motoblur.1.jpg',
-    '../../images/phones/motorola-bravo-with-motoblur.2.jpg',
+    '../../../images/phones/motorola-bravo-with-motoblur.0.jpg',
+    '../../../images/phones/motorola-bravo-with-motoblur.1.jpg',
+    '../../../images/phones/motorola-bravo-with-motoblur.2.jpg',
   ],
   name: 'MOTOROLA BRAVO\u2122 with MOTOBLUR\u2122',
   sizeAndWeight: {
@@ -650,9 +650,9 @@ const phonesDetails = [{
   },
   id: 'motorola-charm-with-motoblur',
   images: [
-    '../../images/phones/motorola-charm-with-motoblur.0.jpg',
-    '../../images/phones/motorola-charm-with-motoblur.1.jpg',
-    '../../images/phones/motorola-charm-with-motoblur.2.jpg',
+    '../../../images/phones/motorola-charm-with-motoblur.0.jpg',
+    '../../../images/phones/motorola-charm-with-motoblur.1.jpg',
+    '../../../images/phones/motorola-charm-with-motoblur.2.jpg',
   ],
   name: 'Motorola CHARM\u2122 with MOTOBLUR\u2122',
   sizeAndWeight: {
@@ -714,9 +714,9 @@ const phonesDetails = [{
   },
   id: 'motorola-defy-with-motoblur',
   images: [
-    '../../images/phones/motorola-defy-with-motoblur.0.jpg',
-    '../../images/phones/motorola-defy-with-motoblur.1.jpg',
-    '../../images/phones/motorola-defy-with-motoblur.2.jpg',
+    '../../../images/phones/motorola-defy-with-motoblur.0.jpg',
+    '../../../images/phones/motorola-defy-with-motoblur.1.jpg',
+    '../../../images/phones/motorola-defy-with-motoblur.2.jpg',
   ],
   name: 'Motorola DEFY\u2122 with MOTOBLUR\u2122',
   sizeAndWeight: {
@@ -776,12 +776,12 @@ const phonesDetails = [{
   },
   id: 'motorola-xoom-with-wi-fi',
   images: [
-    '../../images/phones/motorola-xoom-with-wi-fi.0.jpg',
-    '../../images/phones/motorola-xoom-with-wi-fi.1.jpg',
-    '../../images/phones/motorola-xoom-with-wi-fi.2.jpg',
-    '../../images/phones/motorola-xoom-with-wi-fi.3.jpg',
-    '../../images/phones/motorola-xoom-with-wi-fi.4.jpg',
-    '../../images/phones/motorola-xoom-with-wi-fi.5.jpg',
+    '../../../images/phones/motorola-xoom-with-wi-fi.0.jpg',
+    '../../../images/phones/motorola-xoom-with-wi-fi.1.jpg',
+    '../../../images/phones/motorola-xoom-with-wi-fi.2.jpg',
+    '../../../images/phones/motorola-xoom-with-wi-fi.3.jpg',
+    '../../../images/phones/motorola-xoom-with-wi-fi.4.jpg',
+    '../../../images/phones/motorola-xoom-with-wi-fi.5.jpg',
   ],
   name: 'Motorola XOOM\u2122 with Wi-Fi',
   sizeAndWeight: {
@@ -841,9 +841,9 @@ const phonesDetails = [{
   },
   id: 'motorola-xoom',
   images: [
-    '../../images/phones/motorola-xoom.0.jpg',
-    '../../images/phones/motorola-xoom.1.jpg',
-    '../../images/phones/motorola-xoom.2.jpg',
+    '../../../images/phones/motorola-xoom.0.jpg',
+    '../../../images/phones/motorola-xoom.1.jpg',
+    '../../../images/phones/motorola-xoom.2.jpg',
   ],
   name: 'MOTOROLA XOOM\u2122',
   sizeAndWeight: {
@@ -909,10 +909,10 @@ const phonesDetails = [{
   },
   id: 'nexus-s',
   images: [
-    '../../images/phones/nexus-s.0.jpg',
-    '../../images/phones/nexus-s.1.jpg',
-    '../../images/phones/nexus-s.2.jpg',
-    '../../images/phones/nexus-s.3.jpg',
+    '../../../images/phones/nexus-s.0.jpg',
+    '../../../images/phones/nexus-s.1.jpg',
+    '../../../images/phones/nexus-s.2.jpg',
+    '../../../images/phones/nexus-s.3.jpg',
   ],
   name: 'Nexus S',
   sizeAndWeight: {
@@ -975,13 +975,13 @@ const phonesDetails = [{
   },
   id: 'samsung-galaxy-tab',
   images: [
-    '../../images/phones/samsung-galaxy-tab.0.jpg',
-    '../../images/phones/samsung-galaxy-tab.1.jpg',
-    '../../images/phones/samsung-galaxy-tab.2.jpg',
-    '../../images/phones/samsung-galaxy-tab.3.jpg',
-    '../../images/phones/samsung-galaxy-tab.4.jpg',
-    '../../images/phones/samsung-galaxy-tab.5.jpg',
-    '../../images/phones/samsung-galaxy-tab.6.jpg',
+    '../../../images/phones/samsung-galaxy-tab.0.jpg',
+    '../../../images/phones/samsung-galaxy-tab.1.jpg',
+    '../../../images/phones/samsung-galaxy-tab.2.jpg',
+    '../../../images/phones/samsung-galaxy-tab.3.jpg',
+    '../../../images/phones/samsung-galaxy-tab.4.jpg',
+    '../../../images/phones/samsung-galaxy-tab.5.jpg',
+    '../../../images/phones/samsung-galaxy-tab.6.jpg',
   ],
   name: 'Samsung Galaxy Tab\u2122',
   sizeAndWeight: {
@@ -1040,9 +1040,9 @@ const phonesDetails = [{
   },
   id: 'samsung-gem',
   images: [
-    '../../images/phones/samsung-gem.0.jpg',
-    '../../images/phones/samsung-gem.1.jpg',
-    '../../images/phones/samsung-gem.2.jpg',
+    '../../../images/phones/samsung-gem.0.jpg',
+    '../../../images/phones/samsung-gem.1.jpg',
+    '../../../images/phones/samsung-gem.2.jpg',
   ],
   name: 'Samsung Gem\u2122',
   sizeAndWeight: {
@@ -1102,10 +1102,10 @@ const phonesDetails = [{
   },
   id: 'samsung-mesmerize-a-galaxy-s-phone',
   images: [
-    '../../images/phones/samsung-mesmerize-a-galaxy-s-phone.0.jpg',
-    '../../images/phones/samsung-mesmerize-a-galaxy-s-phone.1.jpg',
-    '../../images/phones/samsung-mesmerize-a-galaxy-s-phone.2.jpg',
-    '../../images/phones/samsung-mesmerize-a-galaxy-s-phone.3.jpg',
+    '../../../images/phones/samsung-mesmerize-a-galaxy-s-phone.0.jpg',
+    '../../../images/phones/samsung-mesmerize-a-galaxy-s-phone.1.jpg',
+    '../../../images/phones/samsung-mesmerize-a-galaxy-s-phone.2.jpg',
+    '../../../images/phones/samsung-mesmerize-a-galaxy-s-phone.3.jpg',
   ],
   name: 'Samsung Mesmerize\u2122 a Galaxy S\u2122 phone',
   sizeAndWeight: {
@@ -1165,9 +1165,9 @@ const phonesDetails = [{
   },
   id: 'samsung-showcase-a-galaxy-s-phone',
   images: [
-    '../../images/phones/samsung-showcase-a-galaxy-s-phone.0.jpg',
-    '../../images/phones/samsung-showcase-a-galaxy-s-phone.1.jpg',
-    '../../images/phones/samsung-showcase-a-galaxy-s-phone.2.jpg',
+    '../../../images/phones/samsung-showcase-a-galaxy-s-phone.0.jpg',
+    '../../../images/phones/samsung-showcase-a-galaxy-s-phone.1.jpg',
+    '../../../images/phones/samsung-showcase-a-galaxy-s-phone.2.jpg',
   ],
   name: 'Samsung Showcase\u2122 a Galaxy S\u2122 phone',
   sizeAndWeight: {
@@ -1227,11 +1227,11 @@ const phonesDetails = [{
   },
   id: 'samsung-transform',
   images: [
-    '../../images/phones/samsung-transform.0.jpg',
-    '../../images/phones/samsung-transform.1.jpg',
-    '../../images/phones/samsung-transform.2.jpg',
-    '../../images/phones/samsung-transform.3.jpg',
-    '../../images/phones/samsung-transform.4.jpg',
+    '../../../images/phones/samsung-transform.0.jpg',
+    '../../../images/phones/samsung-transform.1.jpg',
+    '../../../images/phones/samsung-transform.2.jpg',
+    '../../../images/phones/samsung-transform.3.jpg',
+    '../../../images/phones/samsung-transform.4.jpg',
   ],
   name: 'Samsung Transform\u2122',
   sizeAndWeight: {
@@ -1290,9 +1290,9 @@ const phonesDetails = [{
   },
   id: 'sanyo-zio',
   images: [
-    '../../images/phones/sanyo-zio.0.jpg',
-    '../../images/phones/sanyo-zio.1.jpg',
-    '../../images/phones/sanyo-zio.2.jpg',
+    '../../../images/phones/sanyo-zio.0.jpg',
+    '../../../images/phones/sanyo-zio.1.jpg',
+    '../../../images/phones/sanyo-zio.2.jpg',
   ],
   name: 'SANYO ZIO',
   sizeAndWeight: {
@@ -1352,9 +1352,9 @@ const phonesDetails = [{
   },
   id: 't-mobile-g2',
   images: [
-    '../../images/phones/t-mobile-g2.0.jpg',
-    '../../images/phones/t-mobile-g2.1.jpg',
-    '../../images/phones/t-mobile-g2.2.jpg',
+    '../../../images/phones/t-mobile-g2.0.jpg',
+    '../../../images/phones/t-mobile-g2.1.jpg',
+    '../../../images/phones/t-mobile-g2.2.jpg',
   ],
   name: 'T-Mobile G2',
   sizeAndWeight: {
@@ -1414,12 +1414,12 @@ const phonesDetails = [{
   },
   id: 't-mobile-mytouch-4g',
   images: [
-    '../../images/phones/t-mobile-mytouch-4g.0.jpg',
-    '../../images/phones/t-mobile-mytouch-4g.1.jpg',
-    '../../images/phones/t-mobile-mytouch-4g.2.jpg',
-    '../../images/phones/t-mobile-mytouch-4g.3.jpg',
-    '../../images/phones/t-mobile-mytouch-4g.4.jpg',
-    '../../images/phones/t-mobile-mytouch-4g.5.jpg',
+    '../../../images/phones/t-mobile-mytouch-4g.0.jpg',
+    '../../../images/phones/t-mobile-mytouch-4g.1.jpg',
+    '../../../images/phones/t-mobile-mytouch-4g.2.jpg',
+    '../../../images/phones/t-mobile-mytouch-4g.3.jpg',
+    '../../../images/phones/t-mobile-mytouch-4g.4.jpg',
+    '../../../images/phones/t-mobile-mytouch-4g.5.jpg',
   ],
   name: 'T-Mobile myTouch 4G',
   sizeAndWeight: {
