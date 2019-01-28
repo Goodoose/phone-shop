@@ -6,7 +6,6 @@ export default class PhoneCatalog extends Component {
     element, phones, phoneSelected = () => {}, addToCart,
   }) {
     super({ element });
-    this._element = element;
     this._phones = phones;
     this._phoneSelected = phoneSelected;
     this._addToCart = addToCart;
