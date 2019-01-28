@@ -1437,6 +1437,7 @@ const phonesDetails = [{
 },
 ];
 
+
 const PhoneServices = {
   getAllPhones() {
     return phones;
