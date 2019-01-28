@@ -56,7 +56,7 @@ export default class ShoppingCart {
             <div>
               ${phone.id} quantity: ${phone.quantity}
               <a href="#!phones/${phone.id}" class="thumb" data-delete=${phone.id}>
-                <img alt="close" src="../../../images/close.svg">
+                <img alt="close" src="images/close.svg">
               </a>
             </div>
           </li>
