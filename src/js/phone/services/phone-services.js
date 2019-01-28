@@ -211,11 +211,11 @@ const phonesDetails = [{
   },
   id: 'dell-streak-7',
   images: [
-    '../images/phones/dell-streak-7.0.jpg',
-    '../images/phones/dell-streak-7.1.jpg',
+    'd:/myProjects/phone-shop/phone-shop/dist/images/phones/dell-streak-7.0.jpg',
+    'd:/myProjects/phone-shop/phone-shop/src/images/phones/dell-streak-7.1.jpg',
     '../images/phones/dell-streak-7.2.jpg',
     '../images/phones/dell-streak-7.3.jpg',
-    '../images/phones/dell-streak-7.4.jpg', 
+    '../images/phones/dell-streak-7.4.jpg',
   ],
   name: 'Dell Streak 7',
   sizeAndWeight: {
