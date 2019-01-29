@@ -2,23 +2,19 @@
 import Component from './components.js';
 
 export default class PhoneCatalog extends Component {
-  constructor({
-    element, phones = [], phoneSelected = () => {}, addToCart,
-  }) {
+  constructor({ element, phones = [] }) {
     super({ element });
     this._phones = phones;
-    this._phoneSelected = phoneSelected;
-    this._addToCart = addToCart;
     this._render();
 
     this.on('click', '[data-button-cart]', (e) => {
       const phoneIdClick = e.target.closest('[data-phone-id]');
-      this._addToCart(phoneIdClick.dataset.phoneId);
+      this.emit('add-to-cart', phoneIdClick.dataset.phoneId);
     });
 
     this.on('click', '[data-element="phone-link"]', (e) => {
       const phoneIdClick = e.target.closest('[data-phone-id]');
-      this._phoneSelected(phoneIdClick.dataset.phoneId);
+      this.emit('phone-selected', phoneIdClick.dataset.phoneId);
       this._element.hidden = true;
     });
   }

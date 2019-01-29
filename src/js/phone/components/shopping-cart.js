@@ -1,8 +1,9 @@
-import Components from './components.js'
+// eslint-disable-next-line import/extensions
+import Components from './components.js';
 
 export default class ShoppingCart extends Components {
   constructor({ element }) {
-    super({ element })
+    super({ element });
     this._cartItem = [];
     this._render();
 

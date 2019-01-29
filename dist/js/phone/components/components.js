@@ -1,6 +1,7 @@
 export default class Component {
   constructor({ element }) {
     this._element = element;
+    this.callbackMap = {};
   }
 
   on(nameEvent, selector, callback) {
@@ -9,5 +10,13 @@ export default class Component {
       if (!delegateTarget) { return; }
       callback(e);
     });
+  }
+
+  subscribe(nameEvent, callback) {
+    this.callbackMap[nameEvent] = callback;
+  }
+
+  emit(nameEvent, data) {
+    this.callbackMap[nameEvent](data);
   }
 }

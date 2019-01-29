@@ -1,19 +1,17 @@
 import Component from './components.js';
 
 export default class PhoneViewer extends Component {
-  constructor({ element, addToCart, showCatalog }) {
+  constructor({ element }) {
     super({ element });
-    this._addToCart = addToCart;
-    this._showCatalog = showCatalog;
 
     this.on('click', '[data-button-cart]', () => {
-      this._addToCart(this._phoneDetails.id);
+      this.emit('add-to-cart', this._phoneDetails.id);
     });
 
     this.on('click', '[data-button-back]', (e) => {
       const btnBack = e.target.closest('[data-button-back]');
       if (btnBack) {
-        this._showCatalog();
+        this.emit('show-catalog');
       }
     });
 

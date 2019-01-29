@@ -1,10 +1,10 @@
-import Components from './components.js'
+// eslint-disable-next-line import/extensions
+import Components from './components.js';
 
 export default class PhoneSearch extends Components {
-  constructor({ element, phones, findByName }) {
+  constructor({ element, phones }) {
     super({ element });
     this._phones = phones;
-    this._findByName = findByName;
     this._render();
 
     function clickEveryButton(fun, ms) {
@@ -33,7 +33,7 @@ export default class PhoneSearch extends Components {
       return filteredList;
     }
 
-    const clickAllBtn = clickEveryButton(() => findByName(filterPhoneByName()), 500);
+    const clickAllBtn = clickEveryButton(() => this.emit('find-by-name', filterPhoneByName()), 500);
 
     this.on('keydown', '[data-input-search]', () => {
       clickAllBtn();

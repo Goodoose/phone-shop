@@ -19,57 +19,66 @@ export default class PhonesPage {
     this._catalog = new PhoneCatalog({
       element: this._element.querySelector('[data-component="phone-catalog"]'),
       phones: PhoneServices.getAllPhones(),
-      phoneSelected: (phoneId) => {
-        const phoneDetails = PhoneServices.getDetails(phoneId);
-        this._viewer.show(phoneDetails);
-      },
-      addToCart: (phoneId) => {
-        const phoneDetails = PhoneServices.getDetails(phoneId);
-        this._cart.addPhone(phoneDetails);
-      },
     });
+
+    this._catalog.subscribe('add-to-cart', (phoneId) => {
+      const phoneDetails = PhoneServices.getDetails(phoneId);
+      this._cart.addPhone(phoneDetails);
+    });
+
+    this._catalog.subscribe('phone-selected', (phoneId) => {
+      const phoneDetails = PhoneServices.getDetails(phoneId);
+      this._viewer.show(phoneDetails);
+    });
+
     this._viewer = new PhoneViewer({
       element: this._element.querySelector('[data-component="phone-viewer"]'),
-      addToCart: (phoneId) => {
-        const phoneDetails = PhoneServices.getDetails(phoneId);
-        this._cart.addPhone(phoneDetails);
-      },
-      showCatalog: () => {
-        this._catalog._element.hidden = false;
-        this._catalog._render();
-        this._viewer._element.hidden = true;
-      },
     });
+
+    this._viewer.subscribe('add-to-cart', (phoneId) => {
+      const phoneDetails = PhoneServices.getDetails(phoneId);
+      this._cart.addPhone(phoneDetails);
+    });
+
+    this._viewer.subscribe('show-catalog', () => {
+      this._catalog._element.hidden = false;
+      this._catalog._render();
+      this._viewer._element.hidden = true;
+    });
+
     this._cart = new ShoppingCart({
       element: this._element.querySelector('[data-component="phone-cart"]'),
     });
+
     this._find = new PhoneFilter({
       element: this._element.querySelector('[data-component="phone-filter"]'),
-      sortBy: (typeSort) => {
-        if (typeSort === 'age') {
-          this._catalog._phones.sort((a, b) => a.age - b.age);
-        } else {
-          this._catalog._phones.sort((a, b) => {
-            if (a.id > b.id) {
-              return 1;
-            }
-            if (a.id < b.id) {
-              return -1;
-            }
-            return 0;
-          });
-        }
-        this._catalog._render();
-      },
+    });
+
+    this._find.subscribe('sort-by', (typeSort) => {
+      if (typeSort === 'age') {
+        this._catalog._phones.sort((a, b) => a.age - b.age);
+      } else {
+        this._catalog._phones.sort((a, b) => {
+          if (a.id > b.id) {
+            return 1;
+          }
+          if (a.id < b.id) {
+            return -1;
+          }
+          return 0;
+        });
+      }
+      this._catalog._render();
     });
 
     this._search = new PhoneSearch({
       element: this._element.querySelector('[data-component="phone-search"]'),
       phones: PhoneServices.getAllPhones(),
-      findByName: (phoneSelect) => {
-        this._catalog._phones = phoneSelect;
-        this._catalog._render();
-      },
+    });
+
+    this._search.subscribe('find-by-name', (phoneSelect) => {
+      this._catalog._phones = phoneSelect;
+      this._catalog._render();
     });
   }
 

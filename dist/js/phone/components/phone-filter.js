@@ -1,9 +1,9 @@
-import Components from './components.js'
+// eslint-disable-next-line import/extensions
+import Components from './components.js';
 
 export default class PhoneFilter extends Components {
-  constructor({ element, sortBy }) {
+  constructor({ element }) {
     super({ element });
-    this._sortBy = sortBy;
     this._render();
 
     let changeSortType;
@@ -12,9 +12,9 @@ export default class PhoneFilter extends Components {
       if (sortPhone.value !== changeSortType) {
         changeSortType = sortPhone.value;
         if (sortPhone.value === 'name') {
-          this._sortBy('id');
+          this.emit('sort-by', 'id');
         } else {
-          this._sortBy('age');
+          this.emit('sort-by', 'age');
         }
       }
     });
