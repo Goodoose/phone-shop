@@ -1,13 +1,14 @@
-export default class PhoneFilter {
+import Components from './components.js'
+
+export default class PhoneFilter extends Components {
   constructor({ element, sortBy }) {
-    this._element = element;
+    super({ element });
     this._sortBy = sortBy;
     this._render();
 
     let changeSortType;
-    this._element.addEventListener('click', (e) => {
+    this.on('click', '[data-sort]', (e) => {
       const sortPhone = e.target.closest('[data-sort]');
-      if (!sortPhone) { return; }
       if (sortPhone.value !== changeSortType) {
         changeSortType = sortPhone.value;
         if (sortPhone.value === 'name') {

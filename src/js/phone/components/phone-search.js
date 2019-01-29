@@ -1,6 +1,8 @@
-export default class PhoneSearch {
+import Components from './components.js'
+
+export default class PhoneSearch extends Components {
   constructor({ element, phones, findByName }) {
-    this._element = element;
+    super({ element });
     this._phones = phones;
     this._findByName = findByName;
     this._render();
@@ -33,11 +35,8 @@ export default class PhoneSearch {
 
     const clickAllBtn = clickEveryButton(() => findByName(filterPhoneByName()), 500);
 
-    this._element.addEventListener('keydown', (e) => {
-      const inputSearch = e.target.closest('[data-input-search]');
-      if (inputSearch) {
-        clickAllBtn();
-      }
+    this.on('keydown', '[data-input-search]', () => {
+      clickAllBtn();
     });
   }
 

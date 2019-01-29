@@ -1,18 +1,23 @@
-export default class PhoneViewer {
+import Component from './components.js';
+
+export default class PhoneViewer extends Component {
   constructor({ element, addToCart, showCatalog }) {
-    this._element = element;
+    super({ element });
     this._addToCart = addToCart;
     this._showCatalog = showCatalog;
 
-    this._element.addEventListener('click', (e) => {
-      const btnAddToCart = e.target.closest('[data-button-cart]');
-      if (btnAddToCart) {
-        this._addToCart(this._phoneDetails.id);
-      }
+    this.on('click', '[data-button-cart]', () => {
+      this._addToCart(this._phoneDetails.id);
+    });
+
+    this.on('click', '[data-button-back]', (e) => {
       const btnBack = e.target.closest('[data-button-back]');
       if (btnBack) {
         this._showCatalog();
       }
+    });
+
+    this.on('click', '[data-image-item]', (e) => {
       const clickImg = e.target.closest('[data-image-item]');
       if (clickImg) {
         const mainImg = this._element.querySelector('[data-main-img]');
