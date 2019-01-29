@@ -1,36 +1,32 @@
+import Components from './components.js'
 
-// import '../../../../dist/images/close.svg';
-export default class ShoppingCart {
+export default class ShoppingCart extends Components {
   constructor({ element }) {
-    this._element = element;
+    super({ element })
     this._cartItem = [];
     this._render();
 
-    this._element.addEventListener('click', (e) => {
-      const btnDelete = e.target.closest('[data-delete]');
-      if (btnDelete) {
-        const tempArr = [];
-        this._cartItem.forEach((elem) => {
-          if (elem.id !== btnDelete.dataset.delete) {
-            tempArr.push(elem);
-          } else {
-            // eslint-disable-next-line no-param-reassign
-            delete elem.quantity;
-          }
-        });
-        this._cartItem = tempArr;
-        this._render();
-      }
-
-      const btnDeleteAll = e.target.closest('[data-delete-all]');
-      if (btnDeleteAll) {
-        this._cartItem.forEach((elem) => {
+    this.on('click', '[data-delete]', (e) => {
+      const tempArr = [];
+      this._cartItem.forEach((elem) => {
+        if (elem.id !== e.target.closest('[data-delete]').dataset.delete) {
+          tempArr.push(elem);
+        } else {
           // eslint-disable-next-line no-param-reassign
           delete elem.quantity;
-        });
-        this._cartItem = [];
-        this._render();
-      }
+        }
+      });
+      this._cartItem = tempArr;
+      this._render();
+    });
+
+    this.on('click', '[data-delete-all]', () => {
+      this._cartItem.forEach((elem) => {
+        // eslint-disable-next-line no-param-reassign
+        delete elem.quantity;
+      });
+      this._cartItem = [];
+      this._render();
     });
   }
 
