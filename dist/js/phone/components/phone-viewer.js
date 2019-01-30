@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/extensions
 import Component from './components.js';
 
 export default class PhoneViewer extends Component {
@@ -8,11 +9,8 @@ export default class PhoneViewer extends Component {
       this.emit('add-to-cart', this._phoneDetails.id);
     });
 
-    this.on('click', '[data-button-back]', (e) => {
-      const btnBack = e.target.closest('[data-button-back]');
-      if (btnBack) {
-        this.emit('show-catalog');
-      }
+    this.on('click', '[data-button-back]', () => {
+      this.emit('show-catalog');
     });
 
     this.on('click', '[data-image-item]', (e) => {

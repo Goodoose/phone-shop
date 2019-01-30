@@ -16,6 +16,18 @@ export default class PhonesPage {
     this._element = element;
     this._render();
 
+    this._initCatalog();
+
+    this._initViewer();
+
+    this._initCart();
+
+    this._initFind();
+
+    this._initSearch();
+  }
+
+  _initCatalog() {
     this._catalog = new PhoneCatalog({
       element: this._element.querySelector('[data-component="phone-catalog"]'),
       phones: PhoneServices.getAllPhones(),
@@ -30,7 +42,9 @@ export default class PhonesPage {
       const phoneDetails = PhoneServices.getDetails(phoneId);
       this._viewer.show(phoneDetails);
     });
+  }
 
+  _initViewer() {
     this._viewer = new PhoneViewer({
       element: this._element.querySelector('[data-component="phone-viewer"]'),
     });
@@ -45,11 +59,15 @@ export default class PhonesPage {
       this._catalog._render();
       this._viewer._element.hidden = true;
     });
+  }
 
+  _initCart() {
     this._cart = new ShoppingCart({
       element: this._element.querySelector('[data-component="phone-cart"]'),
     });
+  }
 
+  _initFind() {
     this._find = new PhoneFilter({
       element: this._element.querySelector('[data-component="phone-filter"]'),
     });
@@ -70,7 +88,9 @@ export default class PhonesPage {
       }
       this._catalog._render();
     });
+  }
 
+  _initSearch() {
     this._search = new PhoneSearch({
       element: this._element.querySelector('[data-component="phone-search"]'),
       phones: PhoneServices.getAllPhones(),
