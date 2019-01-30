@@ -1,19 +1,20 @@
-export default class PhoneFilter {
-  constructor({ element, sortBy }) {
-    this._element = element;
-    this._sortBy = sortBy;
+// eslint-disable-next-line import/extensions
+import Components from './components.js';
+
+export default class PhoneFilter extends Components {
+  constructor({ element }) {
+    super({ element });
     this._render();
 
     let changeSortType;
-    this._element.addEventListener('click', (e) => {
+    this.on('click', '[data-sort]', (e) => {
       const sortPhone = e.target.closest('[data-sort]');
-      if (!sortPhone) { return; }
       if (sortPhone.value !== changeSortType) {
         changeSortType = sortPhone.value;
         if (sortPhone.value === 'name') {
-          this._sortBy('id');
+          this.emit('sort-by', 'id');
         } else {
-          this._sortBy('age');
+          this.emit('sort-by', 'age');
         }
       }
     });
