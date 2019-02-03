@@ -7,10 +7,10 @@ export default class ShoppingCart extends Components {
     this._cartItem = [];
     this._render();
 
-    this.on('click', '[data-delete]', (e) => {
+    this.on('click', '[data-delete]', (event) => {
       const tempArr = [];
       this._cartItem.forEach((elem) => {
-        if (elem.id !== e.target.closest('[data-delete]').dataset.delete) {
+        if (elem.id !== event.target.closest('[data-delete]').dataset.delete) {
           tempArr.push(elem);
         } else {
           // eslint-disable-next-line no-param-reassign
@@ -28,6 +28,32 @@ export default class ShoppingCart extends Components {
       });
       this._cartItem = [];
       this._render();
+    });
+
+    this.on('click', '[data-button-add]', (event) => {
+      const phoneClickAdd = event.target.closest('[data-button-add]').dataset.buttonAdd;
+      this._cartItem.forEach((item) => {
+        if (item.id === phoneClickAdd) {
+          // eslint-disable-next-line no-param-reassign
+          item.quantity++;
+          this._render();
+        }
+      });
+    });
+
+    this.on('click', '[data-button-remove]', (event) => {
+      const phoneClickAdd = event.target.closest('[data-button-remove]').dataset.buttonRemove;
+      this._cartItem.forEach((item) => {
+        if (item.id === phoneClickAdd) {
+          // eslint-disable-next-line no-param-reassign
+          item.quantity--;
+          if (item.quantity <= 0) {
+            // eslint-disable-next-line no-param-reassign
+            item.quantity = 0;
+          }
+          this._render();
+        }
+      });
     });
   }
 
@@ -51,7 +77,11 @@ export default class ShoppingCart extends Components {
 
           <li>
             <div>
-              ${phone.id} quantity: ${phone.quantity}
+              ${phone.id}              
+              quantity:
+              <button data-button-remove="${phone.id}">-</button>
+              ${phone.quantity}
+              <button data-button-add="${phone.id}">+</button>
               <a href="#!phones/${phone.id}" class="thumb" data-delete=${phone.id}>
                 <img alt="close" src="images/close.svg">
               </a>

@@ -17,7 +17,6 @@ const jsBlob = 'src/JS/**';
 const outSass = 'dist/css/';
 const outJS = 'dist/js/';
 const jsonBlob = 'src/phones/**';
-// const outJson = 'dist/phones/';
 
 gulp.task('run', () => runSequence('build', 'serve'));
 
@@ -72,9 +71,6 @@ gulp.task('sass', () => gulp.src(sassBlob)
 
 gulp.task('processJS', () => gulp.src(jsBlob)
   .pipe(gulp.dest(outJS)));
-
-/* gulp.task('processJSON', () => gulp.src(jsonBlob)
-  .pipe(gulp.dest(outJson))); */
 
 gulp.task('processJSON', () => gulp.src(jsonBlob)
   .pipe(insert.prepend('phone = '))
