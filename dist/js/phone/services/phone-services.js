@@ -1437,10 +1437,21 @@ const phonesDetails = [{
 },
 ];
 
-
 const PhoneServices = {
   getAllPhones() {
-    return phones;
+    const xhr = new XMLHttpRequest();
+    // 'https://mate-academy.github.io/phone-catalogue-static/phones/phones.json'
+    xhr.open('GET', './src/phones.json', false);
+    xhr.send();
+
+    if (xhr.status !== 200) {
+      alert(`${xhr.status}`);
+      return [];
+    }
+    console.log(xhr.responseText);
+    return JSON.parse(xhr.responseText);
+
+    // return phones;
   },
 
   getDetails(phoneId) {
