@@ -6,16 +6,13 @@ export default class PhoneFilter extends Components {
     super({ element });
     this._render();
 
-    let changeSortType;
-    this.on('click', '[data-sort]', (e) => {
+    // let changeSortType;
+    this.on('change', '[data-sort]', (e) => {
       const sortPhone = e.target.closest('[data-sort]');
-      if (sortPhone.value !== changeSortType) {
-        changeSortType = sortPhone.value;
-        if (sortPhone.value === 'name') {
-          this.emit('sort-by', 'id');
-        } else {
-          this.emit('sort-by', 'age');
-        }
+      if (sortPhone.value === 'name') {
+        this.emit('sort-by', 'id');
+      } else {
+        this.emit('sort-by', 'age');
       }
     });
   }

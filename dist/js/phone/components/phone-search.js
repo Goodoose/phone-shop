@@ -2,10 +2,10 @@
 import Components from './components.js';
 
 export default class PhoneSearch extends Components {
-  constructor({ element, phones }) {
+  constructor({ element }) {
     super({ element });
-    this._phones = phones;
     this._render();
+    this.inputSearch = '';
 
     function clickEveryButton(fun, ms) {
       let timer = null;
@@ -21,23 +21,10 @@ export default class PhoneSearch extends Components {
       };
     }
 
-    let filteredList = [];
-    function filterPhoneByName() {
-      filteredList = [];
-      const inputSearch = document.querySelector('[data-input-search]');
-      phones.forEach((item) => {
-        if (item.name.toLowerCase().includes(inputSearch.value.toLowerCase())) {
-          filteredList.push(item);
-        }
-      });
-      return filteredList;
-    }
-
-    const clickAllBtn = clickEveryButton(() => this.emit('find-by-name', filterPhoneByName()), 500);
-
-    this.on('keydown', '[data-input-search]', () => {
-      clickAllBtn();
-    });
+    this.on('keydown', '[data-input-search]', clickEveryButton(() => {
+      this.inputSearch = document.querySelector('[data-input-search]').value;
+      this.emit('find-by-name');
+    }, 500));
   }
 
   _render() {
@@ -49,5 +36,9 @@ export default class PhoneSearch extends Components {
     </p>
     
     `;
+  }
+
+  _getInputSearch() {
+    return this.inputSearch;
   }
 }

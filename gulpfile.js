@@ -5,7 +5,7 @@ const concat = require('gulp-concat');
 const runSequence = require('run-sequence');
 const browserSync = require('browser-sync').create();
 const sass = require('gulp-sass');
-const insert = require('gulp-insert');
+// const insert = require('gulp-insert');
 
 const distDirectory = 'dist';
 const htmlBlob = 'src/*.html';
@@ -17,6 +17,7 @@ const jsBlob = 'src/JS/**';
 const outSass = 'dist/css/';
 const outJS = 'dist/js/';
 const jsonBlob = 'src/phones/**';
+const outJson = 'dist/phones/';
 
 gulp.task('run', () => runSequence('build', 'serve'));
 
@@ -53,7 +54,7 @@ gulp.task('processHtml', () => gulp.src(htmlBlob)
   .pipe(gulp.dest(distDirectory)));
 
 gulp.task('processImages', () => gulp.src(imagesBlob)
-  .pipe(gulp.dest(`${distDirectory}/images/`)));
+  .pipe(gulp.dest(`${distDirectory}/img/`)));
 
 gulp.task('processFonts', () => gulp.src(fontsBlob)
   .pipe(gulp.dest(`${distDirectory}/fonts/`)));
@@ -73,10 +74,10 @@ gulp.task('processJS', () => gulp.src(jsBlob)
   .pipe(gulp.dest(outJS)));
 
 gulp.task('processJSON', () => gulp.src(jsonBlob)
-  .pipe(insert.prepend('phone = '))
+  /* .pipe(insert.prepend('phone = '))
   .pipe(insert.append(';'))
-  .pipe(concat('phoneItems.js'))
-  .pipe(gulp.dest(outJS)));
+  .pipe(concat('phoneItems.js')) */
+  .pipe(gulp.dest(outJson)));
 
 gulp.task('reloadBrowser', (done) => {
   browserSync.reload();

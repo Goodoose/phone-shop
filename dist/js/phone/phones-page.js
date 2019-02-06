@@ -25,22 +25,42 @@ export default class PhonesPage {
     this._initFind();
 
     this._initSearch();
+
+    this._showPhonesCatalog();
+  }
+
+  _render() {
+    this._element.innerHTML = `
+
+    <div class="col-md-2">
+      <section data-component="phone-search"></section>
+      <section data-component="phone-filter"></section>
+      <section data-component="phone-cart"></section>
+    </div>    
+
+    <div class="col-md-10">
+      <div data-component="phone-catalog" ></div>
+      <div data-component="phone-viewer" hidden></div>       
+    </div>
+
+    `;
   }
 
   _initCatalog() {
     this._catalog = new PhoneCatalog({
       element: this._element.querySelector('[data-component="phone-catalog"]'),
-      phones: PhoneServices.getAllPhones(),
     });
 
     this._catalog.subscribe('add-to-cart', (phoneId) => {
-      const phoneDetails = PhoneServices.getDetails(phoneId);
-      this._cart.addPhone(phoneDetails);
+      PhoneServices.getDetails(phoneId, (phoneDetails) => {
+        this._cart.addPhone(phoneDetails);
+      });
     });
 
     this._catalog.subscribe('phone-selected', (phoneId) => {
-      const phoneDetails = PhoneServices.getDetails(phoneId);
-      this._viewer.show(phoneDetails);
+      PhoneServices.getDetails(phoneId, (phoneDetails) => {
+        this._viewer.show(phoneDetails);
+      });
     });
   }
 
@@ -50,10 +70,10 @@ export default class PhonesPage {
     });
 
     this._viewer.subscribe('add-to-cart', (phoneId) => {
-      const phoneDetails = PhoneServices.getDetails(phoneId);
-      this._cart.addPhone(phoneDetails);
+      PhoneServices.getDetails(phoneId, (phoneDetails) => {
+        this._cart.addPhone(phoneDetails);
+      });
     });
-
     this._viewer.subscribe('show-catalog', () => {
       this._catalog._element.hidden = false;
       this._catalog._render();
@@ -93,29 +113,17 @@ export default class PhonesPage {
   _initSearch() {
     this._search = new PhoneSearch({
       element: this._element.querySelector('[data-component="phone-search"]'),
-      phones: PhoneServices.getAllPhones(),
     });
 
-    this._search.subscribe('find-by-name', (phoneSelect) => {
-      this._catalog._phones = phoneSelect;
-      this._catalog._render();
+    this._search.subscribe('find-by-name', () => {
+      this._showPhonesCatalog();
     });
   }
 
-  _render() {
-    this._element.innerHTML = `
-
-    <div class="col-md-2">
-      <section data-component="phone-search"></section>
-      <section data-component="phone-filter"></section>
-      <section data-component="phone-cart"></section>
-    </div>    
-
-    <div class="col-md-10">
-      <div data-component="phone-catalog" ></div>
-      <div data-component="phone-viewer" hidden></div>       
-    </div>
-
-    `;
+  _showPhonesCatalog() {
+    const query = this._search._getInputSearch();
+    PhoneServices.getAllPhones(query, (phones) => {
+      this._catalog.show(phones);
+    });
   }
 }

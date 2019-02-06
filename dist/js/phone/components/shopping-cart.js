@@ -83,7 +83,7 @@ export default class ShoppingCart extends Components {
               ${phone.quantity}
               <button data-button-add="${phone.id}">+</button>
               <a href="#!phones/${phone.id}" class="thumb" data-delete=${phone.id}>
-                <img alt="close" src="images/close.svg">
+                <img alt="close" src="img/close.svg">
               </a>
             </div>
           </li>
