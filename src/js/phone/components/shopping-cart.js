@@ -4,67 +4,42 @@ import Components from './components.js';
 export default class ShoppingCart extends Components {
   constructor({ element }) {
     super({ element });
-    this._cartItem = [];
+    this._cartItem = {};
     this._render();
 
     this.on('click', '[data-delete]', (event) => {
-      const tempArr = [];
-      this._cartItem.forEach((elem) => {
-        if (elem.id !== event.target.closest('[data-delete]').dataset.delete) {
-          tempArr.push(elem);
-        } else {
-          // eslint-disable-next-line no-param-reassign
-          delete elem.quantity;
-        }
-      });
-      this._cartItem = tempArr;
+      const phoneDelete = event.target.closest('[data-delete]').dataset.delete;
+      delete this._cartItem[phoneDelete];
       this._render();
     });
 
     this.on('click', '[data-delete-all]', () => {
-      this._cartItem.forEach((elem) => {
-        // eslint-disable-next-line no-param-reassign
-        delete elem.quantity;
-      });
-      this._cartItem = [];
+      this._cartItem = {};
       this._render();
     });
 
     this.on('click', '[data-button-add]', (event) => {
       const phoneClickAdd = event.target.closest('[data-button-add]').dataset.buttonAdd;
-      this._cartItem.forEach((item) => {
-        if (item.id === phoneClickAdd) {
-          // eslint-disable-next-line no-param-reassign
-          item.quantity++;
-          this._render();
-        }
-      });
+      this._cartItem[phoneClickAdd]++;
+      this._render();
     });
 
     this.on('click', '[data-button-remove]', (event) => {
-      const phoneClickAdd = event.target.closest('[data-button-remove]').dataset.buttonRemove;
-      this._cartItem.forEach((item) => {
-        if (item.id === phoneClickAdd) {
-          // eslint-disable-next-line no-param-reassign
-          item.quantity--;
-          if (item.quantity <= 0) {
-            // eslint-disable-next-line no-param-reassign
-            item.quantity = 0;
-          }
-          this._render();
-        }
-      });
+      const phoneClickRemove = event.target.closest('[data-button-remove]').dataset.buttonRemove;
+      if (this._cartItem[phoneClickRemove] > 1) {
+        this._cartItem[phoneClickRemove]--;
+      } else {
+        delete this._cartItem[phoneClickRemove];
+      }
+      this._render();
     });
   }
 
   addPhone(phoneAdd) {
-    if ('quantity' in phoneAdd) {
-      // eslint-disable-next-line no-param-reassign
-      phoneAdd.quantity++;
+    if (phoneAdd in this._cartItem) {
+      this._cartItem[phoneAdd]++;
     } else {
-      // eslint-disable-next-line no-param-reassign
-      phoneAdd.quantity = 1;
-      this._cartItem.push(phoneAdd);
+      this._cartItem[phoneAdd] = 1;
     }
     this._render();
   }
@@ -73,16 +48,16 @@ export default class ShoppingCart extends Components {
     this._element.innerHTML = `
       <p>Shopping Cart</p>
       <ul>
-        ${this._cartItem.map(phone => `
+        ${Object.keys(this._cartItem).map(phone => `
 
           <li>
             <div>
-              ${phone.id}              
+              ${phone}              
               quantity:
-              <button data-button-remove="${phone.id}">-</button>
-              ${phone.quantity}
-              <button data-button-add="${phone.id}">+</button>
-              <a href="#!phones/${phone.id}" class="thumb" data-delete=${phone.id}>
+              <button data-button-remove="${phone}">-</button>
+              ${this._cartItem[phone]}
+              <button data-button-add="${phone}">+</button>
+              <a href="#!phones/${phone}" class="thumb" data-delete=${phone}>
                 <img alt="close" src="img/close.svg">
               </a>
             </div>

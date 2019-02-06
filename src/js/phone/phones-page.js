@@ -53,7 +53,7 @@ export default class PhonesPage {
 
     this._catalog.subscribe('add-to-cart', (phoneId) => {
       PhoneServices.getDetails(phoneId, (phoneDetails) => {
-        this._cart.addPhone(phoneDetails);
+        this._cart.addPhone(phoneDetails.id);
       });
     });
 
@@ -71,7 +71,7 @@ export default class PhonesPage {
 
     this._viewer.subscribe('add-to-cart', (phoneId) => {
       PhoneServices.getDetails(phoneId, (phoneDetails) => {
-        this._cart.addPhone(phoneDetails);
+        this._cart.addPhone(phoneDetails.id);
       });
     });
     this._viewer.subscribe('show-catalog', () => {
